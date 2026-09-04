@@ -43,9 +43,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/sanyouwu/lifts"
-Repository = "https://github.com/sanyouwu/lifts"
-Issues = "https://github.com/sanyouwu/lifts/issues"
+Homepage = "https://github.com/sanyouwu/lifts-open-source"
+Repository = "https://github.com/sanyouwu/lifts-open-source"
+Issues = "https://github.com/sanyouwu/lifts-open-source/issues"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

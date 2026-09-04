@@ -2,7 +2,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/lifts.svg)](https://pypi.org/project/lifts/)
 [![Python](https://img.shields.io/pypi/pyversions/lifts.svg)](https://pypi.org/project/lifts/)
-[![CI](https://github.com/sanyouwu/lifts/actions/workflows/ci.yml/badge.svg)](https://github.com/sanyouwu/lifts/actions/workflows/ci.yml)
+[![CI](https://github.com/sanyouwu/lifts-open-source/actions/workflows/ci.yml/badge.svg)](https://github.com/sanyouwu/lifts-open-source/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 LIFTS is a Python package for probabilistic imputation of incomplete multivariate time series. It learns latent state-space dynamics and returns multiple imputations, so downstream analyses can retain uncertainty instead of relying on a single completed data set.
@@ -20,7 +20,7 @@ python -m pip install lifts
 To work from source:
 
 ```bash
-git clone https://github.com/sanyouwu/lifts.git
+git clone https://github.com/sanyouwu/lifts-open-source.git
 cd lifts
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate

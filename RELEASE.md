@@ -1,6 +1,6 @@
 # Releasing LIFTS
 
-This document describes releases from the standalone repository at <https://github.com/sanyouwu/lifts>.
+This document describes releases from the standalone repository at <https://github.com/sanyouwu/lifts-open-source>.
 
 ## Important version note
 
