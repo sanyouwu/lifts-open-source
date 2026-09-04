@@ -1,0 +1,50 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+
+# Environments and local configuration
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Notebooks and plotting caches
+.ipynb_checkpoints/
+.mplconfig/
+.matplotlib_cache/
+.matplotlib/
+
+# Generated experiment artifacts
+results/
+outputs/
+artifacts/
+generated_figures/
+figures/generated/
+examples/notebooks/figures/
+*.pth
+*.pt
+*.ckpt
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

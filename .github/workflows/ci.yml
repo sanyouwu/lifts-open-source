@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-package:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.11"]
+
+    env:
+      CUDA_VISIBLE_DEVICES: ""
+      MPLBACKEND: Agg
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install CPU dependencies and project
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch
+          python -m pip install -e ".[dev]"
+
+      - name: Smoke-test installed package
+        run: |
+          python -c "from lifts import LIFTSImputer, make_case1_dataset, plot_probabilistic_imputation"
+
+      - name: Run tests
+        run: pytest -q
+
+      - name: Build distributions
+        if: matrix.python-version == '3.11'
+        run: python -m build
+
+      - name: Check distribution metadata
+        if: matrix.python-version == '3.11'
+        run: python -m twine check dist/*
