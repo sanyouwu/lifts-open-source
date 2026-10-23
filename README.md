@@ -11,21 +11,22 @@ The current package version is `0.1.0`.
 
 ## Installation
 
-Install this checkout from the repository root. The `notebook` extra installs
-JupyterLab and the kernel needed to run the example notebooks:
+Download the complete repository ZIP and extract it; downloading an individual
+notebook is not sufficient. Open a terminal in the extracted repository root
+(the directory containing `pyproject.toml`) and run:
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+source .venv/bin/activate  # Windows PowerShell: .venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 python -m pip install -e ".[notebook]"
-```
-
-Then start JupyterLab from the repository root:
-
-```bash
 jupyter lab
 ```
+
+Open `examples/notebooks/case1_lifts.ipynb` from JupyterLab. Keep the extracted
+repository in place while using the editable installation. The first install
+requires an internet connection to download dependencies. A GPU is optional;
+the example automatically uses the CPU when CUDA is unavailable.
 
 For development and testing, install the development dependencies as well:
 
