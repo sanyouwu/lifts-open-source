@@ -11,20 +11,25 @@ The current package version is `0.1.0`.
 
 ## Installation
 
-Install the released package from PyPI:
+Install this checkout from the repository root. The `notebook` extra installs
+JupyterLab and the kernel needed to run the example notebooks:
 
 ```bash
-python -m pip install lifts
-```
-
-To work from source:
-
-```bash
-git clone https://github.com/sanyouwu/lifts-open-source.git
-cd lifts
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 python -m pip install --upgrade pip
+python -m pip install -e ".[notebook]"
+```
+
+Then start JupyterLab from the repository root:
+
+```bash
+jupyter lab
+```
+
+For development and testing, install the development dependencies as well:
+
+```bash
 python -m pip install -e ".[dev,notebook]"
 ```
 
