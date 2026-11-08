@@ -383,7 +383,7 @@ class SSM_Smoother(nn.Module):
     # ============================================================
     
     # ============================================================
-    # 🔥 Cache 方法 (用于兼容 FBI_SSM 的 run_backward_pass)
+    # 🔥 Cache 方法 (用于兼容 LIFTSJointSSM 的 run_backward_pass)
     # ============================================================
     #         z_next: [B, keep_dim] - Z_{t+1}
     #         
@@ -2830,7 +2830,7 @@ class SSM_Smoother_V2(nn.Module):
        - 网络只需学习小的增量，而不是绝对值
     6. 🔥 [FIX] 添加连续正弦时间编码 (支持不规则采样)
     
-    使用方式 (在 FBI_SSM.run_backward_pass 中):
+    使用方式 (在 LIFTSJointSSM.run_backward_pass 中):
         smoother.precompute_history_features(Z_f, time_stamps)  # 只调用一次
         for t in reversed(range(T)):
             z_curr = smoother.forward_with_cache(t, z_next)  # 使用缓存

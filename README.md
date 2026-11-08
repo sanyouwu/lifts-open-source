@@ -161,7 +161,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidance and [RELEASE.md
 
 ## Compatibility note
 
-Version `0.1.0` retains the legacy import aliases `FBIImputer` and `get_fbi_config` for compatibility with earlier internal experiments. They are not the public-facing method name; new code, documentation, and issue reports should use `LIFTSImputer` and LIFTS terminology.
+LIFTS was called FBI in early versions of the paper and code. Use `LIFTSImputer` and `make_default_config` for new code. The old module paths and names, including `FBIImputer` and `get_fbi_config`, remain available for existing experiments. The checkpoint format is unchanged.
 
 ## License and acknowledgements
 

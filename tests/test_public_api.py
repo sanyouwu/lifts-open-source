@@ -1,7 +1,27 @@
+import pickle
+
 import numpy as np
 import torch
 
 from lifts import LIFTSImputer, make_case1_dataset
+
+
+def test_historical_fbi_imports_and_pickle_class_names():
+    from baselines import fbi_wrapper, lifts_wrapper
+    from lifts import FBIImputer, get_fbi_config
+    from lifts import api
+    from nets import fbi_ssm_joint, lifts_ssm_joint
+
+    assert fbi_wrapper is lifts_wrapper
+    assert fbi_ssm_joint is lifts_ssm_joint
+    assert FBIImputer is lifts_wrapper.LIFTSImputerBase
+    assert get_fbi_config is lifts_wrapper.get_lifts_config
+    assert api.FBIImputer is FBIImputer
+    assert api.get_fbi_config is get_fbi_config
+    assert fbi_wrapper.fbi_impute is lifts_wrapper.lifts_impute
+    assert pickle.loads(b"cbaselines.fbi_wrapper\nFBIImputer\n.") is lifts_wrapper.LIFTSImputerBase
+    assert pickle.loads(b"cnets.fbi_ssm_joint\nFBI_SSM_Joint\n.") is lifts_ssm_joint.LIFTSJointSSM
+    assert pickle.loads(b"cnets.fbi_ssm_joint\nFBI_SSM\n.") is lifts_ssm_joint.LIFTSJointSSM
 
 
 def test_case1_mcar_dataset_shapes_and_missing_value_contract():

@@ -3,7 +3,7 @@ import copy
 import numpy as np
 import torch
 
-from baselines.fbi_wrapper import FBIImputer, get_fbi_config
+from baselines.lifts_wrapper import LIFTSImputerBase, get_lifts_config
 from loader.case1 import generate_case1
 from loader.case3 import generate_case3
 from loader.case4 import generate_case4
@@ -153,7 +153,7 @@ def make_default_config(
     use_mask_decoder=False,
     **overrides,
 ):
-    cfg = get_fbi_config(p=p, T=T, d=d, obs_rate=obs_rate)
+    cfg = get_lifts_config(p=p, T=T, d=d, obs_rate=obs_rate)
     cfg["train"]["total_alternating_loops"] = total_loops
     cfg["train"]["batch_size"] = batch_size
     cfg["train"]["batch_size_fg"] = batch_size
@@ -186,7 +186,7 @@ def make_default_config(
     return cfg
 
 
-class LIFTSImputer(FBIImputer):
+class LIFTSImputer(LIFTSImputerBase):
     """Sklearn-style estimator facade for LIFTS imputation.
 
     Parameters may be supplied directly in the constructor. If ``p`` and ``T``
@@ -291,6 +291,7 @@ class LIFTSImputer(FBIImputer):
         )
 
     def fit(self, X, mask, **kwargs):
+        """Fit LIFTS using the joint training loop in LIFTSImputerBase."""
         if self.config is None:
             if len(X.shape) != 3:
                 raise ValueError("X must have shape (n_samples, n_features, n_timepoints).")
@@ -349,3 +350,8 @@ class LIFTSImputer(FBIImputer):
         if self.p is not None and self.T is not None:
             self.config = self._make_config(p=self.p, T=self.T)
         return self
+
+
+# Preserve the legacy names that were imported into this module.
+FBIImputer = LIFTSImputerBase
+get_fbi_config = get_lifts_config

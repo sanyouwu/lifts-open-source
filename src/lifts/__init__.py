@@ -1,4 +1,4 @@
-from baselines.fbi_wrapper import FBIImputer, get_fbi_config
+from baselines.lifts_wrapper import FBIImputer, get_fbi_config
 from .api import (
     LIFTSImputer,
     make_case1_dataset,

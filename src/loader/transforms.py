@@ -3,7 +3,7 @@ from torch.utils.data import DataLoader, TensorDataset
 
 
 def convert_data(X, mask, batch_size=128, X_complete=None, shuffle=True):
-    """Create a minimal DataLoader used by FBI training utilities."""
+    """Create a minimal DataLoader used by LIFTS training utilities."""
     X_tensor = torch.as_tensor(X, dtype=torch.float32)
     mask_tensor = torch.as_tensor(mask, dtype=torch.float32)
 

@@ -762,7 +762,7 @@ import numpy as np
 #         # Model (Red) - 使用稍微深一点的红色看起来更稳重
 #         s3 = ax.scatter(my_samples[:, 0, t], my_samples[:, 1, t], 
 #                    c='#d62728', marker='x', alpha=0.5, s=20, linewidths=1.0,
-#                    label='FBI-SSM (Ours)')
+#                    label='LIFTS (Ours)')
 #         # Model Mean
 #         s4 = ax.scatter(my_means[0, t], my_means[1, t], 
 #                    c='#8b0000', marker='^', s=100, edgecolors='white', linewidth=0.8,
@@ -771,7 +771,7 @@ import numpy as np
 #         # 收集图例 (只在第一次循环收集)
 #         if i == 0:
 #             handles.extend([s1, s3, s2, s4])
-#             labels.extend(['Kalman Filter', 'FBI-SSM (Ours)', 'Kalman Mean', 'Model Mean'])
+#             labels.extend(['Kalman Filter', 'LIFTS (Ours)', 'Kalman Mean', 'Model Mean'])
 
 #         # --- B. 美化坐标轴 (Academic Look) ---
 #         ax.set_xlim(xlims)
@@ -877,14 +877,14 @@ import numpy as np
         
 #         s3 = ax.scatter(my_samples[:, 0, t], my_samples[:, 1, t], 
 #                    c='#d62728', marker='x', alpha=0.5, s=20, linewidths=1.0,
-#                    label='FBI-SSM (Ours)')
+#                    label='LIFTS (Ours)')
 #         s4 = ax.scatter(my_means[0, t], my_means[1, t], 
 #                    c='#8b0000', marker='^', s=100, edgecolors='white', linewidth=0.8,
 #                    label='Model Mean', zorder=11)
         
 #         if i == 0:
 #             handles.extend([s1, s3, s2, s4])
-#             labels.extend(['Kalman Filter', 'FBI-SSM (Ours)', 'Kalman Mean', 'Model Mean'])
+#             labels.extend(['Kalman Filter', 'LIFTS (Ours)', 'Kalman Mean', 'Model Mean'])
 
 #         # --- B. 美化坐标轴 ---
 #         ax.set_xlim(xlims)
@@ -998,10 +998,10 @@ import numpy as np
 #         # 散点颜色: #1f77b4 (经典的 Matplotlib 蓝 / Tableau Blue)
 #         # s3 = ax.scatter(my_samples[:, 0, t], my_samples[:, 1, t], 
 #         #            c='#1f77b4', marker='x', alpha=0.5, s=20, linewidths=1.0,
-#         #            label='FBI-SSM (Ours)')
+#         #            label='LIFTS (Ours)')
 #         s3 = ax.scatter(my_samples[:, 0, t], my_samples[:, 1, t], 
 #                    c= "blue",marker='x', alpha=0.5, s=20, linewidths=1.0,
-#                    label='FBI-SSM (Ours)')
+#                    label='LIFTS (Ours)')
         
 #         # 均值颜色: #003366 (深午夜蓝)，用于区分浅蓝色的散点，且显眼
 #         s4 = ax.scatter(my_means[0, t], my_means[1, t], 
@@ -1010,7 +1010,7 @@ import numpy as np
         
 #         if i == 0:
 #             handles.extend([s1, s3, s2, s4])
-#             labels.extend(['Kalman Filter', 'FBI-SSM (Ours)', 'Kalman Mean', 'Model Mean'])
+#             labels.extend(['Kalman Filter', 'LIFTS (Ours)', 'Kalman Mean', 'Model Mean'])
 
 #         # 坐标轴美化
 #         ax.set_xlim(xlims)
@@ -1122,7 +1122,7 @@ def plot_2d_distribution_evolution(my_samples, kalman_samples, cols2plots=5, sav
                    alpha=0.6,       # 稍微提高一点不透明度，让叉号更清晰
                    s=20, 
                    linewidths=1.0,
-                   label='FBI-SSM (Ours)')
+                   label='LIFTS (Ours)')
         
         # 均值颜色: 深蓝色 (#003366)，压住阵脚
         s4 = ax.scatter(my_means[0, t], my_means[1, t], 
@@ -1131,7 +1131,7 @@ def plot_2d_distribution_evolution(my_samples, kalman_samples, cols2plots=5, sav
         
         if i == 0:
             handles.extend([s1, s3, s2, s4])
-            labels.extend(['Kalman Filter', 'FBI-SSM (Ours)', 'Kalman Mean', 'FBI-SSM Mean'])
+            labels.extend(['Kalman Filter', 'LIFTS (Ours)', 'Kalman Mean', 'LIFTS Mean'])
 
         # 坐标轴美化
         ax.set_xlim(xlims)
