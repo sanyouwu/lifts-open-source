@@ -11,6 +11,8 @@ The current package version is `0.1.0`.
 
 ## Installation
 
+This repository requires Python 3.9 or later.
+
 Download the complete repository ZIP and extract it; downloading an individual
 notebook is not sufficient. Open a terminal in the extracted repository root
 (the directory containing `pyproject.toml`) and run:
